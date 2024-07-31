@@ -1,6 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
 
-@Entity('reservations')
+@Entity('users')
 export class User {
     @PrimaryGeneratedColumn()
     id: string;

@@ -1,4 +1,7 @@
-import { Column, PrimaryGeneratedColumn } from "typeorm"
+import { Column, Entity, PrimaryGeneratedColumn } from "typeorm"
+
+
+@Entity('reservations')
 
 export class Reservation {
 @PrimaryGeneratedColumn()

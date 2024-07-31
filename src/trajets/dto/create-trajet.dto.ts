@@ -1,1 +1,3 @@
-export class CreateTrajetDto {}
+export class CreateTrajetDto {
+    
+}

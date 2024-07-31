@@ -7,21 +7,27 @@ import { TrajetsModule } from './trajets/trajets.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import {User} from './users/entities/user.entity'
 import { Reservation } from './reservations/entities/reservation.entity';
+import { Trajet } from './trajets/entities/trajet.entity';
+import { AgenceModule } from './agence/agence.module';
+import { Agence } from './agence/entities/agence.entity';
+import { BusModule } from './bus/bus.module';
+
 
 @Module({
+
+
   imports: [TypeOrmModule.forRoot({
     type: 'mysql',
     host: 'localhost',
     port: 3306,
     username: 'root',
-    password: 'Yengo@1996',
+    password: 'yengo',
     database: 'agence_voyage',
-    entities: [User,Reservation],
+    entities: [User,Reservation,Trajet,Agence],
     synchronize: true,
   }
    
-
-  ) , UsersModule, ReservationsModule, TrajetsModule],
+  ) , UsersModule, ReservationsModule, TrajetsModule, AgenceModule, BusModule],
   controllers: [AppController],
   providers: [AppService],
 })
