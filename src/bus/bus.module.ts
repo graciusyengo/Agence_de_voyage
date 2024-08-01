@@ -10,5 +10,6 @@ import { TrajetsModule } from 'src/trajets/trajets.module';
   imports:[TypeOrmModule.forFeature([Bus]),TrajetsModule],
   controllers: [BusController],
   providers: [BusService],
+  exports:[BusService]
 })
 export class BusModule {}

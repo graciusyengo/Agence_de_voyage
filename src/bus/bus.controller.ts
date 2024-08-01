@@ -7,7 +7,7 @@ import { UpdateBusDto } from './dto/update-bus.dto';
 export class BusController {
   constructor(private readonly busService: BusService) {}
 
-  @Post()
+  @Post('create')
   create(@Body() createBusDto: CreateBusDto) {
     return this.busService.create(createBusDto);
   }

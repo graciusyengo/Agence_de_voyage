@@ -5,6 +5,7 @@ import { Trajet } from './entities/trajet.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import {success} from '../utils/helper'
+import { Bus } from 'src/bus/entities/bus.entity';
 
 @Injectable()
 export class TrajetsService {
@@ -19,14 +20,10 @@ export class TrajetsService {
   }
 
  async findAll() {
-     const trajets= await this.trajetRepository.find()
-
+     const trajets= await this.trajetRepository.find({relations:{buses:true}})
      const message=`voici la listes de tous les trajets`
      if(trajets) return success(message,trajets)
   }
-
-
-
 
 
 

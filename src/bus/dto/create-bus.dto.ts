@@ -1,4 +1,4 @@
-import { IsOptional, IsString } from "class-validator"
+import { IsOptional, IsString, IsUUID } from "class-validator"
 
 export class CreateBusDto {
 
@@ -9,5 +9,14 @@ export class CreateBusDto {
         @IsOptional()
         @IsString()
         code: string
+
+        @IsUUID()
+        @IsOptional()
+        trajetId: string
+
+
+        @IsUUID()
+        @IsOptional()
+        agenceId: string
 
 }

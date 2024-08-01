@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Logger } from '@nestjs/common';
 import { TrajetsService } from './trajets.service';
 import { CreateTrajetDto } from './dto/create-trajet.dto';
 import { UpdateTrajetDto } from './dto/update-trajet.dto';
@@ -14,6 +14,7 @@ export class TrajetsController {
 
   @Get()
   findAll() {
+    Logger.log("liste de tous les trajets")
     return this.trajetsService.findAll();
   }
 
