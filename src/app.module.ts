@@ -11,6 +11,7 @@ import { Trajet } from './trajets/entities/trajet.entity';
 import { AgenceModule } from './agence/agence.module';
 import { Agence } from './agence/entities/agence.entity';
 import { BusModule } from './bus/bus.module';
+import { Bus } from './bus/entities/bus.entity';
 
 
 @Module({
@@ -23,10 +24,9 @@ import { BusModule } from './bus/bus.module';
     username: 'root',
     password: 'yengo',
     database: 'agence_voyage',
-    entities: [User,Reservation,Trajet,Agence],
+    entities: [User,Reservation,Trajet,Agence,Bus],
     synchronize: true,
   }
-   
   ) , UsersModule, ReservationsModule, TrajetsModule, AgenceModule, BusModule],
   controllers: [AppController],
   providers: [AppService],

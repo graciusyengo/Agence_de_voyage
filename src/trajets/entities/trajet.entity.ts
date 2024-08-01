@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm"
+import { Bus } from "src/bus/entities/bus.entity";
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm"
 @Entity('trajets')
 export class Trajet {
     @PrimaryGeneratedColumn('uuid')
@@ -7,5 +8,8 @@ export class Trajet {
         libelle: string
         @Column()
         tarif: string
+
+    @OneToMany(() => Bus, (bus) => bus.trajet, {cascade: true})
+    buses: Bus[];
 
 }

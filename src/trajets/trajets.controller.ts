@@ -17,18 +17,18 @@ export class TrajetsController {
     return this.trajetsService.findAll();
   }
 
-  @Get(':id')
+  @Get('findOne/:id')
   findOne(@Param('id') id: string) {
-    return this.trajetsService.findOne(+id);
+    return this.trajetsService.findOne(id);
   }
 
   @Patch(':id')
   update(@Param('id') id: string, @Body() updateTrajetDto: UpdateTrajetDto) {
-    return this.trajetsService.update(+id, updateTrajetDto);
+    return this.trajetsService.update(id, updateTrajetDto);
   }
 
-  @Delete(':id')
+  @Delete('delete/:id')
   remove(@Param('id') id: string) {
-    return this.trajetsService.remove(+id);
+    return this.trajetsService.remove(id);
   }
 }
