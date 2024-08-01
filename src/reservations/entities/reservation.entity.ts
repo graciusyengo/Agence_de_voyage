@@ -1,10 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm"
+import { Trajet } from "src/trajets/entities/trajet.entity"
+import { Column, Entity, ManyToOne, PrimaryGeneratedColumn } from "typeorm"
 
 
 @Entity('reservations')
 
 export class Reservation {
-@PrimaryGeneratedColumn()
+@PrimaryGeneratedColumn('uuid')
 id:string
     @Column()
     nombrePlace: number
@@ -13,16 +14,19 @@ id:string
     nombreDeColis: number
 
     @Column()
-    montantAPayer: number
-
-    @Column()
     status: string
 
     @Column({ nullable: true })
     date: string
 
-    @Column({ nullable: true })
+    @Column({type:'uuid', nullable: true })
     trajetId: string
-    @Column({ nullable: true })
+    @Column({type:'uuid', nullable: true })
     userId: string
+
+    @Column({ type:'uuid',nullable: true })
+    dateRes:string
+
+    @ManyToOne(()=> Trajet, (trajet)=> trajet.reservations, { onDelete: 'CASCADE', onUpdate: 'CASCADE'})
+    trajet: Trajet;
 }

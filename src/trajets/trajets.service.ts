@@ -20,18 +20,14 @@ export class TrajetsService {
   }
 
  async findAll() {
-     const trajets= await this.trajetRepository.find({relations:{buses:true}})
+     const trajets= await this.trajetRepository.find({relations:{buses:true,reservations:true}})
      const message=`voici la listes de tous les trajets`
      if(trajets) return success(message,trajets)
   }
 
-
-
-
   async update(@Param('id')id: string, updateTrajetDto: UpdateTrajetDto) {
 
 await this.getOne(id)
-
   await this.trajetRepository.update(id,updateTrajetDto)
   const updatedTrajet= await this.getOne(id);
   const message=`le trejet à été modifier avec success`
