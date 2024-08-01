@@ -12,7 +12,7 @@ export class ReservationsController {
     return this.reservationsService.create(createReservationDto);
   }
 
-  @Get()
+  @Get('findAll')
   findAll() {
     return this.reservationsService.findAll();
   }

@@ -24,8 +24,11 @@ private readonly trajetsService: TrajetsService){}
   
   }
 
-  findAll() {
-    return `This action returns all reservations`;
+  async findAll() {
+  return await this.reservationRepository.createQueryBuilder('reservation')
+   .leftJoinAndSelect('reservation.trajet', 'trajet')
+   .getMany()
+
   }
 
   findOne(id: number) {

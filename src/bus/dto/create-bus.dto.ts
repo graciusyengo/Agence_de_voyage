@@ -6,9 +6,7 @@ export class CreateBusDto {
     @IsString()
         modele:string
 
-        @IsOptional()
-        @IsString()
-        code: string
+    
 
         @IsUUID()
         @IsOptional()
@@ -18,5 +16,9 @@ export class CreateBusDto {
         @IsUUID()
         @IsOptional()
         agenceId: string
+
+        @IsUUID()
+        @IsOptional()
+        dateId: string
 
 }

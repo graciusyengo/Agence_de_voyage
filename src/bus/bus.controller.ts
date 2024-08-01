@@ -12,23 +12,23 @@ export class BusController {
     return this.busService.create(createBusDto);
   }
 
-  @Get()
+  @Get('findAll')
   findAll() {
     return this.busService.findAll();
   }
 
   @Get(':id')
   findOne(@Param('id') id: string) {
-    return this.busService.findOne(+id);
+    return this.busService.findOne(id);
   }
 
-  @Patch(':id')
-  update(@Param('id') id: string, @Body() updateBusDto: UpdateBusDto) {
-    return this.busService.update(+id, updateBusDto);
+  @Patch('update/:id/:code')
+  update(@Param('id') id: string,  @Param('code')code:string, @Body() updateBusDto: UpdateBusDto) {
+    return this.busService.update(id,code, updateBusDto);
   }
 
-  @Delete(':id')
-  remove(@Param('id') id: string) {
-    return this.busService.remove(+id);
+  @Delete('delete/:id/:code')
+  remove(@Param('id') id: string, @Param('code') code:string) {
+    return this.busService.remove(id,code);
   }
 }

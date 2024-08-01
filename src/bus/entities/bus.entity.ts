@@ -19,6 +19,9 @@ export class Bus {
         @Column({type: 'uuid', nullable: true})
         agenceId:string
 
+        @Column({type: 'uuid', nullable: true})
+        dateId:string
+
         @ManyToOne(()=> Trajet, (trajet)=> trajet.buses, { onDelete: 'CASCADE', onUpdate: 'CASCADE'})
         trajet: Trajet;
 
